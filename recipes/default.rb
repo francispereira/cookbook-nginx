@@ -36,4 +36,5 @@ end
 # notifies :restart, 'service[chef-solr]', :delayed
 service node['nginx']['service'] do
   action [:enable, :start]
+  ignore_failure TrueClass
 end
