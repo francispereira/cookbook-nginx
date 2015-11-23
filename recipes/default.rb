@@ -13,9 +13,9 @@ template '/etc/yum.repos.d/nginx.repo' do
 end
 
 node['nginx']['packages'].each do |nginx_package|
-  package nginx_package do
+  yum_package nginx_package do
     action :install
-    flush_cache [:before => false, :after => false]
+    flush_cache [{:before => false, :after => false}]
   end
 end
 
